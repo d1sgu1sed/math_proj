@@ -32,8 +32,7 @@ def get_func_str():
     expr = sp.sympify(input_str)
     func = sp.lambdify(x, expr, "numpy")
     return func
-# def func(x):
-#     return -(4 * x + 18) ** 2
+
 
 def main(page: ft.Page):
     matplotlib.use('agg')
@@ -48,8 +47,8 @@ def main(page: ft.Page):
     plt.plot(x, func(x))
 
     #Рисуем начальные оси графика
-    plt.axhline(0, color='orange',linewidth=0.5)
-    plt.axvline(0, color='orange',linewidth=0.5)
+    plt.axhline(0, color='green',linewidth=1.5)
+    plt.axvline(0, color='green',linewidth=1.5)
 
     #Блок для отрисовки вертикальной оси от корня
     func_ans = func(x_ans)
