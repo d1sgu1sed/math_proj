@@ -9,21 +9,27 @@ import sympy as sp
 def biss(func, bounds, eps=1e-5):
     a, b = bounds
     x0 = (a + b) / 2
+    count = 0
+    #Нельзя гарантировать, что ответ находится в промежутке [a, b]
     if func(a) * func(b) > 0:
         while abs(a - b) >= eps:
+            count += 1
             if abs(func(x0)) > abs(func(x0 + eps)):
                 a = x0
             else:
                 b = x0
             x0 = (a + b) / 2
+            print(f"{count}. Отрезок [a, b] = [{round(a, 10)}, {round(b, 10)}]")
         return x0
     else:
         while abs(a - b) >= eps:
+            count += 1
             if func(a) * func(x0) > 0:
                 a = x0
             else:
                 b = x0
             x0 = (a + b) / 2
+            print(f"{count}. Отрезок [a, b] = [{round(a, 10)}, {round(b, 10)}]")
         return x0
 
 
